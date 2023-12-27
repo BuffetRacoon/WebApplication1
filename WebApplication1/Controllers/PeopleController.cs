@@ -25,6 +25,18 @@ namespace WebApplication1.Controllers
             return View(await _context.Person.ToListAsync());
         }
 
+        // GET: ShowSearchPage
+        public async Task<IActionResult> ShowSearchPage()
+        {
+            return View("ShowSearchPage");
+        }
+
+        // POST: ShowSearchPage
+        public async Task<IActionResult> ShowSearchResults(String SearchPhrase)
+        {
+            return View("Index", await _context.Person.Where( j=>j.Name.Contains(SearchPhrase)).ToListAsync());
+        }
+
         // GET: People/Details/5
         public async Task<IActionResult> Details(int? id)
         {
