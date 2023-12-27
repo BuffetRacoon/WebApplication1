@@ -1,4 +1,6 @@
-﻿namespace WebApplication1.Models
+﻿using System.Drawing;
+
+namespace WebApplication1.Models
 {
     public class Person
     {
@@ -8,6 +10,8 @@
         public string Race { get; set; }
 
         public string Gender { get; set; }
+
+        public Image img { get; set; }
 
         public Person()
         {
