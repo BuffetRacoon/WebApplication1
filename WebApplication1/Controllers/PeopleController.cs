@@ -28,13 +28,13 @@ namespace WebApplication1.Controllers
         // GET: ShowSearchPage
         public async Task<IActionResult> ShowSearchPage()
         {
-            return View("ShowSearchPage");
+            return View("ShowSearchPage", await _context.Person.ToListAsync());
         }
 
         // POST: ShowSearchPage
         public async Task<IActionResult> ShowSearchResults(String SearchPhrase)
         {
-            return View("Index", await _context.Person.Where( j=>j.Name.Contains(SearchPhrase)).ToListAsync());
+            return View("ShowSearchPage", await _context.Person.Where( j=>j.Name.Contains(SearchPhrase)).ToListAsync());
         }
 
         // GET: People/Details/5
